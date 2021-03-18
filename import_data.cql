@@ -36,7 +36,7 @@ FOREACH(i in RANGE(0, length(days)-2) |
             CREATE UNIQUE (day1)-[:NEXT]->(day2))));
                                            
 //load csv
-LOAD CSV WITH HEADERS from 'https://dl.dropboxusercontent.com/u/313565755/ncaa2016.csv' AS line
+LOAD CSV WITH HEADERS from 'https://raw.githubusercontent.com/kvangundy/buffetsauce2021/main/Big_Dance_CSV_2009_2019.csv' AS line
 WITH line, toINT(line.Year) as Year
 MATCH (t:Year {year:Year})
 CREATE (game:Game {winner:line.TeamA})-[:OCCURED_ON]->(t)
